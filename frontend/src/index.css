@@ -1,0 +1,177 @@
+/* Esportify – Light Retro Gaming Design System */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    @apply bg-cyber-bg text-cyber-text antialiased;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
+  ::-webkit-scrollbar-thumb { background: #c4b5fd; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+
+  :focus-visible { @apply outline-none ring-2 ring-violet-500 ring-offset-2 ring-offset-white; }
+
+  h1, h2, h3 { font-family: 'Inter', sans-serif; font-weight: 900; }
+}
+
+@layer components {
+  /* ── Cards ── */
+  .cyber-card {
+    @apply bg-white border border-slate-200 rounded-xl relative overflow-hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s ease;
+  }
+  .cyber-card::before { display: none; }
+  .cyber-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .cyber-card-purple {
+    @apply cyber-card;
+    border-left: 3px solid #7c3aed;
+  }
+  .cyber-card-cyan {
+    @apply cyber-card;
+    border-left: 3px solid #0284c7;
+  }
+
+  /* ── Buttons ── */
+  .cyber-btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold text-sm
+           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed
+           rounded-lg relative cursor-pointer select-none;
+  }
+  .cyber-btn-primary {
+    @apply cyber-btn px-5 py-2.5 bg-violet-700 text-white border border-violet-700
+           hover:bg-violet-800 hover:-translate-y-0.5 active:translate-y-0;
+    box-shadow: 0 1px 3px rgba(109,40,217,0.25);
+  }
+  .cyber-btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(109,40,217,0.30);
+  }
+  .cyber-btn-cyan {
+    @apply cyber-btn px-5 py-2.5 bg-sky-600 text-white border border-sky-600
+           hover:bg-sky-700 hover:-translate-y-0.5;
+    box-shadow: 0 1px 3px rgba(2,132,199,0.25);
+  }
+  .cyber-btn-outline {
+    @apply cyber-btn px-5 py-2.5 bg-white text-violet-700 border border-violet-300
+           hover:bg-violet-50 hover:border-violet-400 hover:-translate-y-0.5;
+  }
+  .cyber-btn-danger {
+    @apply cyber-btn px-5 py-2.5 bg-red-600 text-white border border-red-600
+           hover:bg-red-700 hover:-translate-y-0.5;
+    box-shadow: 0 1px 3px rgba(220,38,38,0.2);
+  }
+  .cyber-btn-success {
+    @apply cyber-btn px-5 py-2.5 bg-emerald-600 text-white border border-emerald-600
+           hover:bg-emerald-700 hover:-translate-y-0.5;
+    box-shadow: 0 1px 3px rgba(5,150,105,0.2);
+  }
+  .cyber-btn-ghost {
+    @apply cyber-btn px-4 py-2 bg-transparent text-slate-600 border border-slate-200
+           hover:text-slate-900 hover:bg-slate-50 hover:border-slate-300;
+  }
+
+  /* ── Inputs ── */
+  .cyber-input {
+    @apply w-full bg-white border border-slate-200 text-slate-900 placeholder-slate-400
+           px-4 py-2.5 text-sm font-medium rounded-lg
+           focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20
+           transition-all duration-200;
+  }
+  .cyber-label {
+    @apply block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5;
+  }
+  .cyber-select {
+    @apply cyber-input cursor-pointer appearance-none;
+  }
+
+  /* ── Badges ── */
+  .cyber-badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold uppercase
+           tracking-wide rounded-md border;
+  }
+  .cyber-badge-purple  { @apply cyber-badge bg-violet-50  text-violet-700  border-violet-200; }
+  .cyber-badge-cyan    { @apply cyber-badge bg-sky-50     text-sky-700     border-sky-200; }
+  .cyber-badge-green   { @apply cyber-badge bg-emerald-50 text-emerald-700 border-emerald-200; }
+  .cyber-badge-red     { @apply cyber-badge bg-red-50     text-red-700     border-red-200; }
+  .cyber-badge-yellow  { @apply cyber-badge bg-amber-50   text-amber-700   border-amber-200; }
+  .cyber-badge-gray    { @apply cyber-badge bg-slate-100  text-slate-600   border-slate-200; }
+  .cyber-badge-magenta { @apply cyber-badge bg-rose-50    text-rose-700    border-rose-200; }
+
+  /* ── Pixel heading ── */
+  .pixel-heading {
+    font-family: 'Press Start 2P', monospace;
+    @apply tracking-wide leading-relaxed;
+  }
+
+  /* ── Dividers ── */
+  .cyber-divider {
+    @apply border-0 h-px bg-slate-200;
+  }
+
+  /* ── Grid / dot background ── */
+  .cyber-grid-bg {
+    background-image: radial-gradient(circle, rgba(124,58,237,0.10) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* ── Text accent ── */
+  .text-glow-purple  { @apply text-violet-700; }
+  .text-glow-cyan    { @apply text-sky-600; }
+  .text-glow-magenta { @apply text-rose-600; }
+
+  /* ── Subtle decorative borders (replace neon) ── */
+  .neon-border-purple { @apply border border-violet-200; box-shadow: 0 0 0 3px rgba(124,58,237,0.08); }
+  .neon-border-cyan   { @apply border border-sky-200;    box-shadow: 0 0 0 3px rgba(2,132,199,0.08); }
+
+  /* ── Progress bar ── */
+  .cyber-progress {
+    @apply w-full bg-slate-100 rounded-full h-2.5 relative overflow-hidden;
+    border: 1px solid #e2e8f0;
+  }
+  .cyber-progress-fill {
+    @apply h-full rounded-full transition-all duration-500;
+    background: linear-gradient(90deg, #7c3aed, #0284c7);
+  }
+
+  /* ── Table ── */
+  .cyber-table { @apply w-full text-sm; }
+  .cyber-table th {
+    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500
+           border-b border-slate-200 bg-slate-50;
+  }
+  .cyber-table td {
+    @apply px-4 py-3.5 border-b border-slate-100 text-slate-800;
+  }
+  .cyber-table tr:last-child td { @apply border-b-0; }
+  .cyber-table tr:hover td { @apply bg-violet-50/40; }
+
+  /* ── Alert boxes ── */
+  .alert-error {
+    @apply flex items-center gap-3 bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg;
+  }
+  .alert-success {
+    @apply flex items-center gap-3 bg-emerald-50 border border-emerald-200 text-emerald-700 p-4 rounded-lg;
+  }
+  .alert-info {
+    @apply flex items-center gap-3 bg-violet-50 border border-violet-200 text-violet-700 p-4 rounded-lg;
+  }
+  .alert-warning {
+    @apply flex items-center gap-3 bg-amber-50 border border-amber-200 text-amber-700 p-4 rounded-lg;
+  }
+
+  /* ── Section header label (retro feel) ── */
+  .section-label {
+    @apply pixel-heading text-violet-600 text-[9px] mb-2 tracking-widest uppercase;
+  }
+}

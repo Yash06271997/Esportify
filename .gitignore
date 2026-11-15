@@ -1,0 +1,19 @@
+# Esportify – Root .gitignore
+node_modules/
+.env
+.env.local
+.env.production
+dist/
+dist-ssr/
+*.log
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.idea/
+.vscode/
+backend/dbCheck.mjs
+backend/fixValorantStatus.mjs
+backend/fixFifaTeamSize.mjs
